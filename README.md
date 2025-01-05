@@ -13,7 +13,7 @@ CREATE TABLE pelanggan (
 
 
 ### 2. Membuat Table Karyawan
-```sql
+sql
 CREATE TABLE karyawan (
     id_karyawan INT AUTO_INCREMENT PRIMARY KEY,
     nama_karyawan VARCHAR(100),
@@ -22,7 +22,7 @@ CREATE TABLE karyawan (
 
 
 ### 3. Membuat Table Menu
-```sql
+sql
 CREATE TABLE menu (
     id_menu INT AUTO_INCREMENT PRIMARY KEY,
     nama_menu VARCHAR(100),
