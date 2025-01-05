@@ -2,6 +2,7 @@
 #Step By Step
 Warkop-28
 ### 1. Membuat Table Pelanggan
+sql
 CREATE TABLE pelanggan (
     id_pelanggan INT AUTO_INCREMENT PRIMARY KEY,
     nama_pelanggan VARCHAR(100),
@@ -12,6 +13,7 @@ CREATE TABLE pelanggan (
 
 
 ### 2. Membuat Table Karyawan
+sql
 CREATE TABLE karyawan (
     id_karyawan INT AUTO_INCREMENT PRIMARY KEY,
     nama_karyawan VARCHAR(100),
@@ -20,6 +22,7 @@ CREATE TABLE karyawan (
 
 
 ### 3. Membuat Table Menu
+sql
 CREATE TABLE menu (
     id_menu INT AUTO_INCREMENT PRIMARY KEY,
     nama_menu VARCHAR(100),
@@ -28,6 +31,7 @@ CREATE TABLE menu (
 
 
 ### 4. Membuat Table Meja
+sql
 CREATE TABLE meja (
     id_meja INT AUTO_INCREMENT PRIMARY KEY,
     nomor_meja INT,
@@ -35,6 +39,7 @@ CREATE TABLE meja (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 ### 5. Membuat Table Pesanan
+sql
 CREATE TABLE pesanan (
     id_pesanan INT AUTO_INCREMENT PRIMARY KEY,
     tanggal_pesanan DATE,
@@ -50,6 +55,7 @@ CREATE TABLE pesanan (
 
 
 ### 6. Membuat Table Detail Pesanan
+sql
 CREATE TABLE detail_pesanan (
     id_detail_pesanan INT AUTO_INCREMENT PRIMARY KEY,
     id_pesanan INT,
@@ -62,6 +68,7 @@ CREATE TABLE detail_pesanan (
 
 
 ### 7. Menambahkan Data Dummy Ke Table Pelanggan
+sql
 INSERT INTO pelanggan (nama_pelanggan, alamat_pelanggan, no_telepon) VALUES
 ('Andi Wijaya', 'Jl. Merdeka No. 12', '081234567890'),
 ('Budi Santoso', 'Jl. Sudirman No. 45', '081234567891'),
@@ -86,6 +93,7 @@ INSERT INTO pelanggan (nama_pelanggan, alamat_pelanggan, no_telepon) VALUES
 
 
 ### 8. Menambahkan Data Dummy ke table Karyawan
+sql
 INSERT INTO karyawan (nama_karyawan, posisi) VALUES
 ('Rina Ambarwati', 'Pelayan'),
 ('Agus Wijaya', 'Kasir'),
@@ -110,6 +118,7 @@ INSERT INTO karyawan (nama_karyawan, posisi) VALUES
 
 
 ### 9. Menambahkan Data Dummy Ke Table Menu
+sql
 INSERT INTO menu (nama_menu, harga_menu) VALUES
 ('Kopi Hitam', 10000),
 ('Teh Manis', 8000),
@@ -134,6 +143,7 @@ INSERT INTO menu (nama_menu, harga_menu) VALUES
 
 
 ### 10. Menambahkan Data Dummy Ke table Meja
+sql
 INSERT INTO meja (nomor_meja, status_meja) VALUES
 (1, 'Kosong'),
 (2, 'Kosong'),
@@ -158,6 +168,7 @@ INSERT INTO meja (nomor_meja, status_meja) VALUES
 
 
 ### 11. Menambahkan Data Dummy Ke table Pesanan
+sql
 INSERT INTO pesanan (tanggal_pesanan, total_harga, status_pesanan, id_pelanggan, id_karyawan, id_meja) VALUES
 ('2024-12-10', 50000, 'Selesai', 1, 2, 3),
 ('2024-12-11', 60000, 'Selesai', 2, 1, 5),
@@ -182,6 +193,7 @@ INSERT INTO pesanan (tanggal_pesanan, total_harga, status_pesanan, id_pelanggan,
 
 
 ### 12. Menambahkan Data Dummy Ke Table Detail Pesanan
+sql
 INSERT INTO detail_pesanan (id_pesanan, id_menu, jumlah_pesanan, subtotal) VALUES
 (1, 1, 2, 20000),
 (1, 3, 1, 12000),
@@ -206,6 +218,7 @@ INSERT INTO detail_pesanan (id_pesanan, id_menu, jumlah_pesanan, subtotal) VALUE
 
 
 ### 13. Relasi Antar Table 
+sql
 ALTER TABLE pesanan
     ADD CONSTRAINT fk_pelanggan_pesanan
     FOREIGN KEY (id_pelanggan) REFERENCES pelanggan(id_pelanggan),
@@ -224,6 +237,7 @@ ALTER TABLE detail_pesanan
     FOREIGN KEY (id_menu) REFERENCES menu(id_menu);
 
 ### 14. Transaksi
+sql
 START TRANSACTION;
 INSERT INTO pesanan (tanggal_pesanan, total_harga, status_pesanan, id_pelanggan, id_karyawan, id_meja) VALUES ('2024-12-30', 90000, 'Selesai', 5, 2, 3);
 SET @id_pesanan = LAST_INSERT_ID();
@@ -233,6 +247,7 @@ COMMIT;
 
 
 ### 15. Laporan Dan Transaksi 
+sql
 SELECT 
     p.id_pesanan AS 'ID Pesanan',
     p.tanggal_pesanan AS 'Tanggal Pesanan',
@@ -259,3 +274,15 @@ JOIN
     meja me ON p.id_meja = me.id_meja
 ORDER BY 
     p.tanggal_pesanan DESC;
+
+### 16. Update Data Pelanggan
+sql
+UPDATE pelanggan
+SET nama_pelanggan = 'Budi Raharjo', no_telepon = '081298765432'
+WHERE id_pelanggan = 1;
+
+### 17. Delete Detail Pesanan
+sql
+DELETE FROM detail_pesanan
+WHERE id_detail_pesanan = 1;
+
