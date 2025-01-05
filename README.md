@@ -2,7 +2,7 @@
 #Step By Step
 Warkop-28
 ### 1. Membuat Table Pelanggan
-sql
+```sql
 CREATE TABLE pelanggan (
     id_pelanggan INT AUTO_INCREMENT PRIMARY KEY,
     nama_pelanggan VARCHAR(100),
