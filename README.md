@@ -1,6 +1,7 @@
-# Tubes_Basdat
-#Step By Step
+### Step By Step
 Warkop-28
+
+
 ### 1. Membuat Table Pelanggan
 ```sql
 CREATE TABLE pelanggan (
