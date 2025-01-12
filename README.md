@@ -2,15 +2,15 @@
 Warkop-28
 
 
-### 1. Membuat Table Pelanggan
-```sql
+1. Membuat Table Pelanggan
+sql
 CREATE TABLE pelanggan (
     id_pelanggan INT AUTO_INCREMENT PRIMARY KEY,
     nama_pelanggan VARCHAR(100),
     alamat_pelanggan TEXT,
     no_telepon VARCHAR(15)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
+![Screenshot 2024-12-30 234310](https://github.com/user-attachments/assets/691dd205-0402-4881-8c64-465edaf022cd)
 
 
 
