@@ -10,6 +10,9 @@ CREATE TABLE pelanggan (
     alamat_pelanggan TEXT,
     no_telepon VARCHAR(15)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+![WhatsApp Image 2025-01-12 at 21 12 41_154c263f](https://github.com/user-attachments/assets/a6809d76-5e67-48bb-a106-d514f2a2bf27)
+
+
 
 
 
